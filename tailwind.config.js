@@ -20,6 +20,16 @@ module.exports = {
                 500: '#FFFDF7',
             },
         },
+        borderRadius: {
+            DEFAULT: '12px',
+            sm: '6px',
+            lg: '24px',
+            FULL: '999px',
+        },
+        fontFamily: {
+            display: ['Poppins', 'sans-serif'],
+            body: ['Poppins', 'sans-serif'],
+        },
     },
     plugins: [],
 };

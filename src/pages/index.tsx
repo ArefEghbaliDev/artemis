@@ -1,12 +1,13 @@
+import ContainedButton from 'components/UI/Button/ContainedButton';
 import type { NextPage } from 'next';
 
 const Home: NextPage = () => {
     return (
         <div>
             <h1>Hello World</h1>
-            <button type="button" className="px-3 py-2 border-none bg-primary-500 flex rounded">
+            <ContainedButton type="button" isLoading={true} color="primary">
                 Click Me
-            </button>
+            </ContainedButton>
         </div>
     );
 };
