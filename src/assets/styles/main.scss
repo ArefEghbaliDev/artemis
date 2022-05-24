@@ -1,4 +1,6 @@
 body,
 html {
     font-family: 'Poppins', sans-serif;
+    @apply bg-dark-500;
+    @apply text-white-500;
 }
