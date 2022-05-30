@@ -5,12 +5,12 @@ module.exports = {
             colors: {
                 dark: {
                     500: '#100F1A',
-                    400: '#181627',
-                    300: '#201D34',
+                    400: '#181724',
+                    300: '#23222e',
                 },
                 primary: {
                     600: '#2F0AFF',
-                    500: '#401FFF',
+                    500: '#060029',
                     400: '#5233FF',
                 },
             },
@@ -24,7 +24,7 @@ module.exports = {
             DEFAULT: '12px',
             sm: '6px',
             lg: '24px',
-            FULL: '999px',
+            full: '999px',
         },
         fontFamily: {
             display: ['Poppins', 'sans-serif'],

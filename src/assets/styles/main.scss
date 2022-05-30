@@ -5,4 +5,10 @@ html {
     font-family: 'Poppins', sans-serif;
     @apply bg-dark-500;
     @apply text-white-500;
+    font-size: 14px;
+}
+
+.workspace-select-title {
+    min-width: 120px;
+    max-width: 120px;
 }
