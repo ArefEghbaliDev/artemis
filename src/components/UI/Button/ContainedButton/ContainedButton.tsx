@@ -3,7 +3,7 @@ import LoadingSpinner from 'components/UI/LoadingSpinner';
 import { IButton } from '../button.interface';
 
 const ContainedButton = ({ children, onClick, disabled, isLoading, type, color }: IButton) => {
-    const baseClass = 'flex items-center justify-center rounded px-3 py-2 transition-all duration-100 ease-out';
+    const baseClass = 'flex items-center justify-center rounded px-4 py-3 transition-all duration-100 ease-out';
 
     const returnButtonColor = () => {
         switch (color) {

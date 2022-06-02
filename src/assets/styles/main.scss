@@ -1,4 +1,5 @@
 @import './components';
+@import './snippets';
 
 body,
 html {
@@ -11,4 +12,8 @@ html {
 .workspace-select-title {
     min-width: 120px;
     max-width: 120px;
+}
+
+.add-workspace-select {
+    justify-content: flex-start !important;
 }

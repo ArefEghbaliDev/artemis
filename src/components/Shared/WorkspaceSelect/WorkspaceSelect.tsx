@@ -1,9 +1,11 @@
 import { Listbox } from '@headlessui/react';
 import Avatar from 'components/UI/Avatar';
+import TextButton from 'components/UI/Button/TextButton';
+import TextField from 'components/UI/TextField';
 import { TSingleWorkspace } from 'models/workspace/workspace.interface';
 import { useState } from 'react';
 
-import { HiChevronRight, HiPlus, HiSelector } from 'react-icons/hi';
+import { HiChevronRight, HiPlus, HiSearch, HiSelector } from 'react-icons/hi';
 
 interface IProps {
     items: TSingleWorkspace[];
@@ -20,7 +22,9 @@ const WorkspaceSelect = ({ items }: IProps) => {
                     <p className="workspace-select-title truncate">{selectedItem.title}</p>
                     <HiSelector size={18} className="ml-5" />
                 </Listbox.Button>
-                <Listbox.Options className="absolute left-0 top-full w-full transform-gpu translate-y-2 bg-white-500 bg-opacity-10 rounded p-3 min-w-max">
+                <Listbox.Options className="absolute left-0 top-full w-full transform-gpu translate-y-2 bg-dark-300 rounded p-3 min-w-max">
+                    <TextField type="text" placeholder="Workspaces..." className="w-56" Icon={<HiSearch size={18} className="mr-2" />} />
+                    <div className="divider-line mt-1 mb-3" />
                     {items.map((item) => (
                         <Listbox.Option
                             key={item.id}
@@ -31,11 +35,11 @@ const WorkspaceSelect = ({ items }: IProps) => {
                             <HiChevronRight size={18} />
                         </Listbox.Option>
                     ))}
-                    <div className="w-full border-b border-b-white-500 opacity-10 my-3" />
-                    <button className="p-3 cursor-pointer w-full flex items-center justify-start transition-all duration-75 ease-out hover:bg-dark-400 rounded">
+                    <div className="divider-line my-3" />
+                    <TextButton color="primary" className="w-full text-white-500 add-workspace-select">
                         <HiPlus size={18} className="mr-3" />
                         Create Workspace
-                    </button>
+                    </TextButton>
                 </Listbox.Options>
             </div>
         </Listbox>
