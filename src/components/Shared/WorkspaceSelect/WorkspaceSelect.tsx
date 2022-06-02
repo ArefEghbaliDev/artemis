@@ -2,6 +2,7 @@ import { Listbox } from '@headlessui/react';
 import Avatar from 'components/UI/Avatar';
 import TextButton from 'components/UI/Button/TextButton';
 import TextField from 'components/UI/TextField';
+import useNotification from 'hooks/useNotification';
 import { TSingleWorkspace } from 'models/workspace/workspace.interface';
 import { useState } from 'react';
 
@@ -13,6 +14,18 @@ interface IProps {
 
 const WorkspaceSelect = ({ items }: IProps) => {
     const [selectedItem, setSelectedItem] = useState(items[0]);
+
+    const { addNotification } = useNotification();
+
+    const handleAddNotif = () => {
+        addNotification({
+            title: 'Welcome now',
+            type: 'default',
+            id: '1234',
+            maxNotifs: 3,
+            message: 'Welcome to here',
+        });
+    };
 
     return (
         <Listbox value={selectedItem} onChange={setSelectedItem}>
@@ -36,7 +49,7 @@ const WorkspaceSelect = ({ items }: IProps) => {
                         </Listbox.Option>
                     ))}
                     <div className="divider-line my-3" />
-                    <TextButton color="primary" className="w-full text-white-500 add-workspace-select">
+                    <TextButton color="primary" className="w-full text-white-500 add-workspace-select" onClick={handleAddNotif}>
                         <HiPlus size={18} className="mr-3" />
                         Create Workspace
                     </TextButton>
