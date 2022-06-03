@@ -1,7 +1,7 @@
-import WorkspaceSelect from 'components/Shared/WorkspaceSelect';
+import ProjectSelect from 'components/Shared/ProjectSelect';
 import { TSingleWorkspace } from 'models/workspace/workspace.interface';
 
-const WorkspaceSidebar = () => {
+const ProjectSidebar = () => {
     const workspaces: TSingleWorkspace[] = [
         {
             id: '1234',
@@ -23,9 +23,9 @@ const WorkspaceSidebar = () => {
 
     return (
         <div className="bg-dark-400 h-screen p-5">
-            <WorkspaceSelect items={workspaces} />
+            <ProjectSelect items={workspaces} />
         </div>
     );
 };
 
-export default WorkspaceSidebar;
+export default ProjectSidebar;

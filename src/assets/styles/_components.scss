@@ -59,6 +59,10 @@
     }
 }
 
+.modal-panel {
+    min-width: 500px;
+}
+
 @keyframes LoadingSpinnerAnim {
     0% {
         transform: rotate(0deg);

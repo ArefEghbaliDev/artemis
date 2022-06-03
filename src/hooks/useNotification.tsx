@@ -1,11 +1,13 @@
-import { ReactElement, useContext } from 'react';
-import { render } from 'react-dom';
+import { ReactElement, useContext, useRef } from 'react';
+import * as ReactDOM from 'react-dom/client';
 
 import { INotification } from 'models/notification/notification.interface';
 import { NotificationContext } from 'services/context/NotificationContext/notificationContext';
 
 const useNotification = () => {
     const dispatch = useContext(NotificationContext);
+
+    const modalRoot = useRef<ReactDOM.Root | null>(null);
 
     const addNotification = (notif: INotification) => {
         dispatch({
@@ -22,13 +24,22 @@ const useNotification = () => {
     };
 
     const addModal = (modal: ReactElement) => {
-        render(modal, document.getElementById('global-modal-container'));
+        const root = ReactDOM.createRoot(document.getElementById('global-modal-container')!);
+        root.render(modal);
+        modalRoot.current = root;
+    };
+
+    const removeModal = () => {
+        if (modalRoot.current) {
+            modalRoot.current.unmount();
+        }
     };
 
     return {
         addNotification,
         removeNotification,
         addModal,
+        removeModal,
     };
 };
 

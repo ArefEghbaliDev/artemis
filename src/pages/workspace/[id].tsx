@@ -1,4 +1,4 @@
-import WorkspaceSidebar from 'components/Blocks/WorkspaceSidebar';
+import ProjectSidebar from 'components/Blocks/ProjectSidebar';
 import Head from 'next/head';
 
 const index = () => {
@@ -8,7 +8,7 @@ const index = () => {
                 <title>Workspace</title>
             </Head>
             <div className="flex items-center">
-                <WorkspaceSidebar />
+                <ProjectSidebar />
             </div>
         </div>
     );
