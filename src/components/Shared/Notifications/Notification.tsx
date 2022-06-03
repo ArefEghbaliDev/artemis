@@ -1,6 +1,6 @@
 import useNotification from 'hooks/useNotification';
 import { HiX } from 'react-icons/hi';
-import { INotification } from './notification.interface';
+import { INotification } from '../../../models/notification/notification.interface';
 
 interface IProps {
     notif: INotification;

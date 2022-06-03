@@ -1,8 +1,8 @@
 import { ReactElement, useContext } from 'react';
 import { render } from 'react-dom';
 
-import { INotification } from 'components/Shared/Notifications/notification.interface';
-import { NotificationContext } from 'components/Shared/Notifications/notificationContext';
+import { INotification } from 'models/notification/notification.interface';
+import { NotificationContext } from 'services/context/NotificationContext/notificationContext';
 
 const useNotification = () => {
     const dispatch = useContext(NotificationContext);

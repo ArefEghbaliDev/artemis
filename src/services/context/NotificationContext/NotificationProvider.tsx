@@ -1,6 +1,6 @@
 import { ReactNode, useReducer } from 'react';
-import Notification from './Notification';
-import { INotification, TDispatch } from './notification.interface';
+import Notification from '../../../components/Shared/Notifications/Notification';
+import { INotification, TDispatch } from '../../../models/notification/notification.interface';
 
 import { motion } from 'framer-motion';
 
