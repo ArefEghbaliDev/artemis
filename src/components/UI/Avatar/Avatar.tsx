@@ -11,8 +11,8 @@ const Avatar = ({ placeholderText, avatar, size, className }: IProps) => {
     return (
         <div
             className={clsx('rounded-full overflow-hidden flex items-center justify-center bg-dark-300', className, {
-                'w-10 h-10': size === 'md',
-                'h-12 w-12': size === 'lg',
+                'w-12 h-12': size === 'md',
+                'h-14 w-14': size === 'lg',
             })}
         >
             {avatar ? (

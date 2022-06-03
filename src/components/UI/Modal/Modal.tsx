@@ -36,7 +36,7 @@ const Modal = ({ isOpen, onClose, title, children, className }: IProps) => {
                             leaveFrom="opacity-100 scale-100"
                             leaveTo="opacity-0 scale-95"
                         >
-                            <Dialog.Panel as="div" className={clsx('bg-dark-300 rounded p-5 modal-panel', className)}>
+                            <Dialog.Panel as="div" className={clsx('bg-dark-300 rounded p-8 modal-panel', className)}>
                                 <Dialog.Title as="h4" className="text-2xl font-medium mb-8">
                                     {title}
                                 </Dialog.Title>
