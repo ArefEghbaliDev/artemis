@@ -6,14 +6,14 @@ import { useAppDispatch } from 'hooks/useReduxHooks';
 import { IProjectEntity } from 'models/project/project.interface';
 
 import { HiChevronRight, HiPlus, HiSearch, HiSelector } from 'react-icons/hi';
+import { useQuery } from 'react-query';
+import { getAllProjects } from 'services/firebase/api/project.api';
 import { updateShowCreateProject } from 'services/redux/slices/project';
 
-interface IProps {
-    items: IProjectEntity[];
-}
-
-const ProjectSelect = ({ items }: IProps) => {
+const ProjectSelect = () => {
     const dispatch = useAppDispatch();
+
+    const { data, isLoading } = useQuery('projects', getAllProjects);
 
     const handleShowCreateProject = () => {
         dispatch(updateShowCreateProject(true));
@@ -27,18 +27,28 @@ const ProjectSelect = ({ items }: IProps) => {
                 <HiSelector size={18} className="ml-5" />
             </Menu.Button>
             <Menu.Items as="div" className="absolute left-0 top-full w-full transform-gpu translate-y-2 bg-dark-300 rounded p-3 min-w-max">
-                <TextField type="text" placeholder="Projects..." className="w-56 mb-5" Icon={<HiSearch size={18} className="mr-2" />} />
+                <TextField
+                    type="text"
+                    placeholder="Projects..."
+                    className="project-select-search mb-5"
+                    Icon={<HiSearch size={18} className="mr-2" />}
+                />
                 <div className="divider-line mt-1 mb-3" />
-                {items.map((item) => (
-                    <Menu.Item
-                        as="button"
-                        key={item.id}
-                        className="p-3 cursor-pointer w-full flex items-center justify-between transition-all duration-75 ease-out hover:bg-dark-400 rounded"
-                    >
-                        {item.data.title}
-                        <HiChevronRight size={18} />
-                    </Menu.Item>
-                ))}
+                {isLoading ? (
+                    <p>Loading...</p>
+                ) : (
+                    data &&
+                    data.map((item) => (
+                        <Menu.Item
+                            as="button"
+                            key={item.id}
+                            className="p-3 cursor-pointer w-full flex items-center justify-between transition-all duration-75 ease-out hover:bg-dark-400 rounded"
+                        >
+                            {item.data.title}
+                            <HiChevronRight size={18} />
+                        </Menu.Item>
+                    ))
+                )}
                 <div className="divider-line my-3" />
                 <Menu.Item as={'div'}>
                     <TextButton color="primary" className="w-full text-white-500 add-workspace-select" onClick={handleShowCreateProject}>
