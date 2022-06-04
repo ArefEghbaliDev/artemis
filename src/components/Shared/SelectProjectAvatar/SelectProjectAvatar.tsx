@@ -3,7 +3,7 @@ import TextButton from 'components/UI/Button/TextButton';
 import { useCallback, useState } from 'react';
 import { useDropzone } from 'react-dropzone';
 
-import { HiFolder, HiFolderOpen } from 'react-icons/hi';
+import { HiFolder, HiFolderOpen, HiOutlinePencil, HiOutlineTrash } from 'react-icons/hi';
 
 const SelectProjectAvatar = () => {
     const [selectedFile, setSelectedFile] = useState<string | null>(null);
@@ -14,7 +14,11 @@ const SelectProjectAvatar = () => {
         setSelectedFile(fileUrl);
     }, []);
 
-    const { getRootProps, getInputProps, isDragActive } = useDropzone({
+    const handleRemoveAvatar = () => {
+        setSelectedFile(null);
+    };
+
+    const { getRootProps, getInputProps, isDragActive, open } = useDropzone({
         onDrop: onFileDrop,
         maxFiles: 1,
     });
@@ -25,10 +29,17 @@ const SelectProjectAvatar = () => {
             {selectedFile ? (
                 <div className="rounded p-4 bg-white-500 bg-opacity-10 flex flex-col items-center">
                     <div className="flex items-center justify-between w-full">
-                        <Avatar avatar={selectedFile} placeholderText="Project" size="lg" />
-                        <TextButton type="button" color="default">
-                            Change Avatar
-                        </TextButton>
+                        <Avatar avatar={selectedFile} placeholderText="Project" size="xl" />
+                        <div className="flex items-center">
+                            <TextButton type="button" color="default" onClick={handleRemoveAvatar}>
+                                <HiOutlineTrash size={18} className="mr-2" />
+                                Remove Avatar
+                            </TextButton>
+                            <TextButton type="button" color="default" onClick={open}>
+                                <HiOutlinePencil size={18} className="mr-2" />
+                                Change Avatar
+                            </TextButton>
+                        </div>
                     </div>
                 </div>
             ) : (
