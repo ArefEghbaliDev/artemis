@@ -12,5 +12,5 @@ export interface INotification {
 
 export type TDispatch = {
     type: string;
-    payload: any;
+    payload?: any;
 };

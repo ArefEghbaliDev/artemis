@@ -1,3 +1,5 @@
+const colors = require('tailwindcss/colors');
+
 module.exports = {
     content: ['./src/pages/**/*.{js,ts,jsx,tsx}', './src/components/**/*.{js,ts,jsx,tsx}'],
     theme: {
@@ -16,6 +18,9 @@ module.exports = {
             transparent: 'transparent',
             white: {
                 500: '#FFFDF7',
+            },
+            red: {
+                500: colors.red[500],
             },
         },
         borderRadius: {

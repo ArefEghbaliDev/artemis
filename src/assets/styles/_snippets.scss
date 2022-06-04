@@ -1,3 +1,7 @@
 .divider-line {
     @apply border-b border-b-white-500 opacity-10 w-full;
 }
+
+.select-avatar-container {
+    @apply rounded p-4 bg-white-500 bg-opacity-10 flex flex-col items-center cursor-pointer;
+}

@@ -47,7 +47,6 @@ const NotificationProvider = ({ children }: IProps) => {
                     </motion.div>
                 ))}
             </div>
-            <div className="fixed left-1/2 top-1/2" id="global-modal-container"></div>
             {children}
         </NotificationContext.Provider>
     );

@@ -23,23 +23,9 @@ const useNotification = () => {
         });
     };
 
-    const addModal = (modal: ReactElement) => {
-        const root = ReactDOM.createRoot(document.getElementById('global-modal-container')!);
-        root.render(modal);
-        modalRoot.current = root;
-    };
-
-    const removeModal = () => {
-        if (modalRoot.current) {
-            modalRoot.current.unmount();
-        }
-    };
-
     return {
         addNotification,
         removeNotification,
-        addModal,
-        removeModal,
     };
 };
 
