@@ -1,20 +1,20 @@
 import { Menu } from '@headlessui/react';
 import Avatar from 'components/UI/Avatar';
 import TextButton from 'components/UI/Button/TextButton';
-import TextField from 'components/UI/TextField';
 import { useAppDispatch } from 'hooks/useReduxHooks';
-import { ChangeEvent, useState } from 'react';
+import { IProjectEntity } from 'models/project/project.interface';
+import { useState } from 'react';
 
-import { HiChevronRight, HiPlus, HiSearch, HiSelector } from 'react-icons/hi';
-import { useQuery } from 'react-query';
-import { getAllProjects } from 'services/firebase/api/project.api';
+import { HiChevronRight, HiPlus, HiSelector } from 'react-icons/hi';
 import { updateShowCreateProject } from 'services/redux/slices/project';
 import ProjectSelectSearch from '../ProjectSelectSearch';
 
-const ProjectSelect = () => {
-    const dispatch = useAppDispatch();
+interface IProps {
+    projects: IProjectEntity[];
+}
 
-    const { data, isLoading } = useQuery('projects', getAllProjects);
+const ProjectSelect = ({ projects }: IProps) => {
+    const dispatch = useAppDispatch();
 
     const [searchKey, setSearchKey] = useState<string>('');
 
@@ -35,24 +35,19 @@ const ProjectSelect = () => {
                 <Menu.Item disabled as="b" className="mb-3 block">
                     Recent Projects
                 </Menu.Item>
-                {isLoading ? (
-                    <p>Loading...</p>
-                ) : (
-                    data &&
-                    data
-                        .slice(0, 5)
-                        .filter((prev) => prev.data.title.toLowerCase().indexOf(searchKey.toLowerCase()) > -1)
-                        .map((item) => (
-                            <Menu.Item
-                                as="button"
-                                key={item.id}
-                                className="p-3 cursor-pointer w-full flex items-center justify-between transition-all duration-75 ease-out hover:bg-dark-400 rounded"
-                            >
-                                {item.data.title}
-                                <HiChevronRight size={18} />
-                            </Menu.Item>
-                        ))
-                )}
+                {projects
+                    .slice(0, 5)
+                    .filter((prev) => prev.data.title.toLowerCase().indexOf(searchKey.toLowerCase()) > -1)
+                    .map((item) => (
+                        <Menu.Item
+                            as="button"
+                            key={item.id}
+                            className="p-3 cursor-pointer w-full flex items-center justify-between transition-all duration-75 ease-out hover:bg-dark-400 rounded"
+                        >
+                            {item.data.title}
+                            <HiChevronRight size={18} />
+                        </Menu.Item>
+                    ))}
                 <div className="divider-line my-3" />
                 <Menu.Item as={'div'}>
                     <TextButton color="primary" className="w-full text-white-500 add-workspace-select" onClick={handleShowCreateProject}>

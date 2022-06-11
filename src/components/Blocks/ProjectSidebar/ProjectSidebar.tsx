@@ -1,9 +1,14 @@
 import ProjectSelect from 'components/Shared/ProjectSelect';
+import { IProjectEntity } from 'models/project/project.interface';
 
-const ProjectSidebar = () => {
+interface IProps {
+    projects: IProjectEntity[];
+}
+
+const ProjectSidebar = ({ projects }: IProps) => {
     return (
         <div className="bg-dark-400 h-screen p-5">
-            <ProjectSelect />
+            <ProjectSelect projects={projects} />
         </div>
     );
 };
