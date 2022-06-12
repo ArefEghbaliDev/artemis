@@ -63,6 +63,19 @@
     min-width: 550px;
 }
 
+.custom-scrollbar {
+    &::-webkit-scrollbar-thumb {
+        border-radius: 12px;
+        background-color: rgba($color: #fff, $alpha: 0.1);
+    }
+
+    &::-webkit-scrollbar {
+        border-radius: 12px;
+        width: 6px;
+        background-color: var(--dark-500);
+    }
+}
+
 @keyframes LoadingSpinnerAnim {
     0% {
         transform: rotate(0deg);

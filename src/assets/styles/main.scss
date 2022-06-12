@@ -1,3 +1,4 @@
+@import './colors';
 @import './components';
 @import './snippets';
 
@@ -20,4 +21,12 @@ html {
 
 .project-select-search {
     width: 215px;
+}
+
+.sidebar-boards {
+    max-height: 350px;
+}
+
+.sidebar-board-item {
+    max-width: 150px;
 }

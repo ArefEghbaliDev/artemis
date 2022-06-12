@@ -2,18 +2,20 @@ const colors = require('tailwindcss/colors');
 
 module.exports = {
     content: ['./src/pages/**/*.{js,ts,jsx,tsx}', './src/components/**/*.{js,ts,jsx,tsx}'],
+    mode: 'jit',
+    purge: ['./public/**/*.html', './src/**/*.{js,jsx,ts,tsx,vue}'],
     theme: {
         extend: {},
         colors: {
             dark: {
-                500: '#100F1A',
-                400: '#181724',
-                300: '#23222e',
+                500: 'var(--dark-500)',
+                400: 'var(--dark-400)',
+                300: 'var(--dark-300)',
             },
             primary: {
-                600: '#2F0AFF',
-                500: '#401FFF',
-                400: '#5233FF',
+                600: 'var(--primary-600)',
+                500: 'var(--primary-500)',
+                400: 'var(--primary-400)',
             },
             transparent: 'transparent',
             white: {
